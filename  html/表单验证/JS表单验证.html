@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>表单验证-JavaScript验证</title>
+  <style>
+    body {
+      font: 1em sans-serif;
+      padding: 50px;
+      margin: 0;
+    }
+
+    form {
+      max-width: 200px;
+    }
+
+    p * {
+      display: block;
+    }
+
+    input[type=email] {
+      -webkit-appearance: none;
+
+      width: 100%;
+      border: 1px solid #333;
+      margin: 0;
+
+      font-family: inherit;
+      font-size: 90%;
+
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    input:invalid {
+      border-color: #900;
+      background-color: #fdd;
+    }
+
+    input:focus:invalid {
+      outline: none;
+    }
+
+    .error {
+      width: 100%;
+      padding: 0;
+      
+      font-size: 80%;
+      color: white;
+      background-color: #900;
+      border-radius: 0 0 5px 5px;
+
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .error.active {
+      padding: 0.3em;
+    }
+
+  </style>
+</head>
+
+<body>
+  <form novalidate>
+    <p>
+      <label for="email">
+        <span>Please enter an email address</span>
+        <input type="email" name="email" id="email">
+        <span class="error" aria-live="polite"></span>
+      </label>
+    </p>
+    <button>Submit</button>
+  </form>
+  <script>
+    var form = document.getElementsByTagName('form')[0]
+    var email = document.getElementById('email')
+    var error = document.querySelector('.error')
+
+    /* email input 的时候检验正确性 */
+    email.addEventListener('input', function () {
+      if (this.validity.valid) {
+        error.innerHTML = ''
+        error.className = 'error'
+      }
+    }, false)
+
+    form.addEventListener('submit', function (event) {
+      if (!email.validity.valid) {
+        error.innerHTML = 'I expect an email, honey!'
+        error.className = 'error active'
+        event.preventDefault()
+      }
+    }, false)
+  </script>
+</body>
+
+</html>

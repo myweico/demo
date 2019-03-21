@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>H5属性表单验证</title>
+</head>
+
+<body>
+  <form>
+    <div>
+      <label name="company_name" for="company_name">公司名称</label>
+      <input type="text" id="company_name" required>
+    </div>
+    <div>
+      <label name=" company_wibsite" for=" company_wibsite">公司网站</label>
+      <input type="url" id=" company_wibsite">
+    </div>
+    <div>
+      <label name="applicant_name" for="applicant_name">姓名</label>
+      <input type="text" id="applicant_name" required>
+    </div>
+    <div>
+      <label name="applicant_job" for="applicant_job">职务</label>
+      <input type="text" id="applicant_job" required>
+    </div>
+    <div>
+      <label name="applicant_email" for="applicant_email">公司邮箱</label>
+      <input type="email" id="applicant_email" required>
+    </div>
+    <div>
+      <label name="applicant_phone" for="applicant_phone">手机号码</label>
+      <input type="text" id="applicant_phone" pattern="\d{11}" required>
+    </div>
+    <button type="reset">重置修改</button>
+    <button type="submit">提交申请</button>
+  </form>
+
+  <script>
+    var phone = document.getElementById('applicant_phone')
+    phone.addEventListener('input', function () {
+      if (!this.validity.valid) {
+        this.setCustomValidity('请输入正确的手机号码！')
+      }
+    }, false)
+  </script>
+</body>
+
+</html>
