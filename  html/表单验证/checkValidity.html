@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CheckValidity</title>
+</head>
+
+<body>
+  <form>
+    <div>
+      <label name="applicant_phone" for="applicant_phone">手机号码</label>
+      <input type="text" id="applicant_phone" pattern="\d{11}" required>
+    </div>
+    <div>
+      <label name="applicant_email" for="applicant_email">邮箱地址</label>
+      <input type="email" id="applicant_email" required>
+    </div>
+  </form>
+  <button type="reset">重置修改</button>
+  <button type="submit">提交申请</button>
+
+  <script>
+    var submitBtn = document.querySelector('button[type=submit]')
+    var form = document.getElementsByTagName('form')[0]
+    var phoneInput = document.getElementById('applicant_phone')
+    submitBtn.addEventListener('click', function () {
+      console.info('in');
+      console.info('phoneInput:', phoneInput.checkValidity())
+      console.info('form:', form.checkValidity())
+      /* checkValidity只会返回true or false，并不会触发invalid时候的提示窗口 */
+      /* form的checkValidity会验证表单内所有元素 */
+      this.checkValidity()
+    })
+  </script>
+</body>
+
+</html>
