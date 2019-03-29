@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS实现各种图形</title>
+  <style>
+    #triangle-up {
+      width: 0;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      border-bottom: 40px solid #0cf;
+    }
+
+    #triangle-up-right {
+      width: 0;
+      height: 0;
+      border-top: 40px solid #0cf;
+      border-left: 40px solid transparent;
+    }
+
+    #circle {
+      width:40px;
+      height: 40px;
+      background: #00ccff;
+      border-radius: 50%;
+    }
+
+    #oval {
+      width: 80px;
+      height: 40px;
+      background: #0cf;
+      border-radius: 50%;
+    }
+
+    #rectangle {
+      width: 100px;
+      height: 40px;
+      background: #00ccff;
+    }
+
+    #isosceles-trapezoid {
+      width: 100px;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-bottom: 40px solid #00ccff;
+    }
+
+    #parallelogram {
+      width: 100px;
+      height: 40px;
+      transform: skew(20deg);
+      background: #00ccff;
+    }
+
+    #hexagram {
+      width: 0;
+      height: 0;
+      border-bottom: 69px solid #0cf;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      position: relative;
+    }
+
+    #hexagram::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 69px solid #0cf;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      position: absolute;
+      transform: translate(-40px, 23px)
+    }
+  </style>
+</head>
+<body>
+  <h2>各个方向的三角形</h2>
+  <h3>向上的三角形</h3>
+  <div id="triangle-up"></div>
+  <h3>向右上角的三角</h3>
+  <div id="triangle-up-right"></div>
+  <h2>圆形</h2>
+  <div id="circle"></div>
+  <h2>椭圆</h2>
+  <div id="oval"></div>
+  <h2>矩形</h2>
+  <div id="rectangle"></div>
+  <h2>梯形</h2>
+  <div id="isosceles-trapezoid"></div>
+  <h2>平行四边形</h2>
+  <div id="parallelogram"></div>
+  <h2>六角星</h2>
+  <div id="hexagram"></div>
+  <h2>五角星</h2>
+  <div id="five-point-star"></div>
+</body>
+</html>
