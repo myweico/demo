@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>border实现各种图形</title>
+  <style>
+    #isosceles-trapezoid {
+      border: 60px solid;
+      border-color: #0F0 #09C #9F9 #FC3;
+      width: 60px;
+      height: 60px;
+    }
+
+    #isosceles-triangle {
+      border: 60px solid;
+      width: 0;
+      height: 0;
+      border-color: #0F0 #09C #9F9 #FC3;
+    }
+
+    #right-trapezoid {
+      width: 0;
+      height: 0;
+      border: 60px solid;
+      border-color: #0F0 #09C #9F9 #FC3;
+      border-bottom: none;
+      border-left-color: transparent;
+    }
+
+    #width-not-match {
+      width: 60px;
+      height: 60px;
+      border-top: 60px solid #0f0;
+      border-right: 20px solid #09c;
+    }
+  </style>
+</head>
+<body>
+  <h2>规则</h2>
+  <ul>
+    <li>边框设置了相邻边的话，则存在交界图形</li>
+    <li>若没有领边图形，则边框显示为矩形</li>
+    <li>若内容宽高为0，则边框则呈现为三角形</li>
+  </ul>
+  <h2>等腰梯形</h2>
+  <p>content有宽高，并且设置了邻边，则存在交界出的三角形</p>
+  <div id="isosceles-trapezoid"></div>
+  <h2>三角形</h2>
+  <p>当等腰梯形的上底为0的时候，可以得到三角形</p>
+  <div id="isosceles-triangle"></div>
+  <h2>直角梯形</h2>
+  <p>有全部交界三角形组成的正方形，去掉一条边界，则会去掉4个交界三角形,然后将一条边设置为透明即可得到直角梯形</p>
+  <div id="right-trapezoid"></div>
+  <h2>当两条边界的宽度不匹配的情形</h2>
+  <div id="width-not-match"></div>
+</body>
+</html>
