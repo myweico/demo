@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>CSS实现各种图形</title>
   <style>
+    body {
+      padding: 20px;
+    }
+
     #triangle-up {
       width: 0;
       border-left: 40px solid transparent;
@@ -21,7 +26,7 @@
     }
 
     #circle {
-      width:40px;
+      width: 40px;
       height: 40px;
       background: #00ccff;
       border-radius: 50%;
@@ -73,9 +78,458 @@
       position: absolute;
       transform: translate(-40px, 23px)
     }
+
+    #five-pointed-star {
+      margin: 100px 0;
+      position: relative;
+      display: block;
+      color: #0cf;
+      width: 0;
+      height: 0;
+      border-right: 100px solid transparent;
+      border-left: 100px solid transparent;
+      border-bottom: 70px solid #0cf;
+      transform: rotate(36deg);
+    }
+
+    #five-pointed-star::before {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-bottom: 70px solid #0cf;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+      position: absolute;
+      left: -100px;
+      top: 0px;
+      transform-origin: 50% 54%;
+      transform: rotate(-72deg);
+    }
+
+    #five-pointed-star::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-bottom: 70px solid #0cf;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+      position: absolute;
+      left: -100px;
+      top: 0px;
+      transform-origin: 50% 54%;
+      transform: rotate(-144deg);
+    }
+
+    #pentagon {
+      margin: 40px 0;
+      width: 60px;
+      border-top: 40px solid #0cf;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      position: relative;
+    }
+
+    #pentagon::before {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      position: absolute;
+      left: -20px;
+      top: -80px;
+      border-bottom: 40px solid #0cf;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+    }
+
+    #haxagon {
+      margin: 40px 0;
+      width: 100px;
+      height: 40px;
+      background: #00ccff;
+      position: relative;
+    }
+
+    #haxagon::before {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: -40px;
+      border-bottom: 40px solid #0cf;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+    }
+
+    #haxagon::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 40px;
+      border-top: 40px solid #0cf;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+    }
+
+    #heart {
+      position: relative;
+      width: 100px;
+      height: 90px;
+    }
+
+    #heart::before,
+    #heart::after {
+      content: '';
+      width: 50px;
+      height: 80px;
+      border-radius: 50px 50px 0 0;
+      background: #0cf;
+      position: absolute;
+      display: block;
+      left: 50px;
+      top: 0;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+    }
+
+    #heart::after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    #infinity {
+      width: 212px;
+      height: 100px;
+      position: relative;
+    }
+
+    #infinity::before,
+    #infinity::after {
+      content: '';
+      width: 60px;
+      height: 60px;
+      border: 20px solid #0cf;
+      border-radius: 50px 50px 0 50px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: rotate(-45deg);
+    }
+
+    #infinity::after {
+      left: auto;
+      right: 0;
+      border-radius: 50px 50px 50px 0;
+      transform: rotate(45deg);
+    }
+
+    /* 菱形 */
+    #diamond {
+      width: 0;
+      height: 0;
+      border: 50px solid transparent;
+      border-bottom-color: #0cf;
+      position: relative;
+      top: -50px;
+    }
+
+    #diamond:after {
+      content: '';
+      position: absolute;
+      left: -50px;
+      top: 50px;
+      width: 0;
+      height: 0;
+      border: 50px solid transparent;
+      border-top-color: #0cf;
+    }
+
+    #egg {
+      display: block;
+      width: 126px;
+      height: 180px;
+      background: #0cf;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    }
+
+    #pac-man {
+      width: 0;
+      height: 0;
+      border: 50px solid #0cf;
+      border-right-color: transparent;
+      border-radius: 50%;
+    }
+
+    #talk-bubble {
+      width: 100px;
+      height: 50px;
+      border-radius: 4px;
+      background: #0cf;
+      position: relative;
+      margin-left: 50px;
+    }
+
+    #talk-bubble::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(-100%, -50%);
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-right: 20px solid #0cf;
+    }
+
+    #point-burst {
+      width: 100px;
+      height: 100px;
+      background: #00ccff;
+      position: relative;
+    }
+
+    #point-burst::before,
+    #point-burst::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      background: #00ccff;
+      transform: rotate(30deg);
+    }
+
+    #point-burst::after {
+      transform: rotate(60deg);
+    }
+
+    /* 八卦 */
+    #yin-yang {
+      width: 96px;
+      height: 48px;
+      background: #eee;
+      border-color: #0cf;
+      border-style: solid;
+      border-width: 2px 2px 50px 2px;
+      border-radius: 100%;
+      position: relative;
+    }
+
+    #yin-yang::before,
+    #yin-yang::after {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border: 18px solid #0cf;
+      border-radius: 100%;
+      background: #eee;
+      left: 0;
+      bottom: -50%;
+    }
+
+    #yin-yang::after {
+      bottom: -50%;
+      left: auto;
+      right: 0;
+      border: 18px solid #eee;
+      background: #0cf;
+    }
+
+    /* 勋章绸带 */
+    #badge-ribbon {
+      position: relative;
+      background: #00ccff;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+
+      margin: 30px 0;
+    }
+
+    #badge-ribbon::before,
+    #badge-ribbon::after {
+      content: '';
+      position: absolute;
+      border-bottom: 70px solid #0cf;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      top: 70px;
+      left: -10px;
+      transform: rotate(-140deg);
+    }
+
+    #badge-ribbon::after {
+      top: 70px;
+      left: auto;
+      right: -10px;
+      transform: rotate(140deg);
+    }
+
+    /* 太空入侵者 */
+    #space-invader {
+      background: #0cf;
+      width: 1em;
+      height: 1em;
+      margin: 50px 0 70px 65px;
+
+      box-shadow:
+        0 0 0 1em #0cf,
+        0 1em 0 1em #0cf,
+        -2.5em 1.5em 0 .5em #0cf,
+        2.5em 1.5em 0 .5em #0cf,
+        -3em -3em 0 0 #0cf,
+        3em -3em 0 0 #0cf,
+        -2em -2em 0 0 #0cf,
+        2em -2em 0 0 #0cf,
+        -3em -1em 0 0 #0cf,
+        -2em -1em 0 0 #0cf,
+        2em -1em 0 0 #0cf,
+        3em -1em 0 0 #0cf,
+        -4em 0 0 0 #0cf,
+        -3em 0 0 0 #0cf,
+        3em 0 0 0 #0cf,
+        4em 0 0 0 #0cf,
+        -5em 1em 0 0 #0cf,
+        -4em 1em 0 0 #0cf,
+        4em 1em 0 0 #0cf,
+        5em 1em 0 0 #0cf,
+        -5em 2em 0 0 #0cf,
+        5em 2em 0 0 #0cf,
+        -5em 3em 0 0 #0cf,
+        -3em 3em 0 0 #0cf,
+        3em 3em 0 0 #0cf,
+        5em 3em 0 0 #0cf,
+        -2em 4em 0 0 #0cf,
+        -1em 4em 0 0 #0cf,
+        1em 4em 0 0 #0cf,
+        2em 4em 0 0 #0cf;
+    }
+
+    /* 电视屏幕 */
+    #tv-screen {
+      width: 200px;
+      height: 150px;
+      margin: 20px 0;
+      background: #0cf;
+      border-radius: 50% / 10%;
+      position: relative;
+    }
+
+    #tv-screen::after {
+      content: '';
+      position: absolute;
+      left: -5%;
+      top: 10%;
+      bottom: 10%;
+      right: -5%;
+      background: #0cf;
+      border-radius: 5% / 50%;
+    }
+
+    /* 雪弗龙 */
+    #chevron {
+      width: 200px;
+      height: 60px;
+      position: relative;
+    }
+
+    #chevron::before,
+    #chevron::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 50%;
+      background: #00ccff;
+      transform: skew(0, 6deg);
+    }
+
+    #chevron::after {
+      left: auto;
+      right: 0;
+      transform: skew(0, -6deg);
+    }
+
+    /* 放大镜 */
+    #magnifying-glass {
+      font-size: 10em;
+      display: block;
+      width: 0.4em;
+      height: 0.4em;
+      border: 0.1em solid #0cf;
+      position: relative;
+      border-radius: 0.35em;
+      margin: 40px 0;
+    }
+
+    #magnifying-glass::after {
+      content: '';
+      position: absolute;
+      font-size: 1em;
+      width: 0.1em;
+      height: 0.4em;
+      background: #0cf;
+      top: 0.377em;
+      left: 0.377em;
+      transform: translateX(-0.05em) rotate(-45deg);
+      transform-origin: 50% 0%;
+    }
+
+    /* Facebook */
+    #facebook {
+      background: #0cf;
+      text-indent: -999em;
+      width: 100px;
+      height: 110px;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+      border: 15px solid #0cf;
+      border-bottom: none;
+    }
+
+    #facebook::before {
+      content: '/20';
+      position: absolute;
+      background: #0cf;
+      width: 40px;
+      height: 90px;
+      bottom: -30px;
+      right: -37px;
+      border: 20px solid #fff;
+      border-radius: 25px;
+    }
+
+    #facebook::after {
+      content: '/20';
+      position: absolute;
+      width: 50px;
+      height: 20px;
+      background: #fff;
+      right: 5px;
+      top: 50px;
+    }
+
+    #moon {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      box-shadow: 15px 15px 0 0 #0cf;
+    }
   </style>
 </head>
+
 <body>
+  <p>部分代码参考自<a href="http://www.webhek.com/post/40-css-shapes.html">用CSS绘制最常见的40种形状和图形</a></p>
   <h2>各个方向的三角形</h2>
   <h3>向上的三角形</h3>
   <div id="triangle-up"></div>
@@ -94,6 +548,41 @@
   <h2>六角星</h2>
   <div id="hexagram"></div>
   <h2>五角星</h2>
-  <div id="five-point-star"></div>
+  <div id="five-pointed-star"></div>
+  <h2>五边形</h2>
+  <div id="pentagon"></div>
+  <h2>六边形</h2>
+  <div id="haxagon"></div>
+  <h2>心形</h2>
+  <div id="heart"></div>
+  <h2>无限符图形</h2>
+  <div id="infinity"></div>
+  <h2>菱形</h2>
+  <div id="diamond"></div>
+  <h2>鸡蛋</h2>
+  <div id="egg"></div>
+  <h2>吃豆人</h2>
+  <div id="pac-man"></div>
+  <h2>聊天框</h2>
+  <div id="talk-bubble"></div>
+  <h2>爆炸形状</h2>
+  <div id="point-burst"></div>
+  <h2>八卦</h2>
+  <div id="yin-yang"></div>
+  <h2>勋章丝带</h2>
+  <div id="badge-ribbon"></div>
+  <h2>太空入侵者</h2>
+  <div id="space-invader"></div>
+  <h2>电视屏幕</h2>
+  <div id="tv-screen"></div>
+  <h2>雪弗龙</h2>
+  <div id="chevron"></div>
+  <h2>放大镜</h2>
+  <div id="magnifying-glass"></div>
+  <h2>Facebook图标</h2>
+  <div id="facebook"></div>
+  <h2>月亮</h2>
+  <div id="moon"></div>
 </body>
+
 </html>
