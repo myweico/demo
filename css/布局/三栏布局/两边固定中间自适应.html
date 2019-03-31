@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>普通浮动三栏布局</title>
+  <style>
+    .container-float {
+      overflow: hidden;
+      line-height: 200px;
+      text-align: center;
+    }
+
+    .container-float div {
+      height: 200px;
+    }
+
+    .container-float .left {
+      float: left;
+      width: 300px;
+      background: #0cf;
+    }
+
+    .container-float .right {
+      float: right;
+      width: 300px;
+      background: #0fc;
+    }
+
+    .container-float .center {
+      padding: 0 300px;
+      background: #fc0;
+    }
+
+    /* 圣杯布局 */
+    .container-cup {
+      height: 200px;
+      text-align: center;
+      line-height: 200px;
+      padding: 0 300px;
+    }
+    
+    .container-cup div {
+      height: 200px;
+    }
+
+    .container-cup .center {
+      float:left;
+      width: 100%;
+      background: #fc0;
+      box-sizing: border-box;
+    }
+
+    .container-cup .center .center-box {
+      width: 100px;
+      height: 100px;
+      background: blue;
+    }
+
+    .container-cup .left {
+      margin-left: -100%;
+      width: 300px;
+      background: #0cf;
+      float: left;
+      position: relative;
+      left: -300px;
+    }
+
+    .container-cup .right {
+      margin-left: -300px;
+      width: 300px;
+      background: #0fc;
+      position: relative;
+      right: -300px;
+      float: left;
+    }
+
+    .container-wing div {
+      height: 200px;
+    }
+
+    .container-wing .center-container {
+      float: left;
+      width: 100%;
+      background: #fc0;
+    }
+
+    .container-wing .center-container .center {
+      margin: 0 300px;
+    }
+
+    .container-wing .left {
+      float: left;
+      width: 300px;
+      margin-left: -100%;
+      background: #0cf;
+    }
+
+    .container-wing .right {
+      float: left;
+      width: 300px;
+      margin-left: -300px;
+      background: #0fc;
+    }
+
+    /* flex布局 */
+    .container-flex {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .container-flex div {
+      height: 200px;
+    }
+
+    .container-flex .left,
+    .container-flex .right {
+      width: 300px;
+      background: #fc0;
+    }
+
+    .container-flex .center {
+      flex: 1;
+      background: #0cf;
+    }
+
+    /* 表格布局 */
+    .container-table {
+      display: table;
+      width: 100%;
+    }
+    
+    .container-table div {
+      height: 200px;
+      display: table-cell;
+    }
+
+    .container-table .left {
+      width: 300px;
+      background: #cf0;
+    }
+
+    .container-table .right {
+      width: 300px;
+      background: #fc0;
+    }
+
+    .container-table .center {
+      background: #0cf;
+      width: auto;
+    }
+
+    /* 绝对定位 */
+    .container-absolute {
+      position: relative;
+      height: 200px;
+    }
+
+    .container-absolute div {
+      height: 100%;
+    }
+
+    .container-absolute .left {
+      position: absolute;
+      width: 300px;
+      left: 0;
+      background: #cf0;
+    }
+
+    .container-absolute .right {
+      position: absolute;
+      right: 0;
+      width: 300px;
+      background: #fc0;
+    }
+
+    .container-absolute .center {
+      position: absolute;
+      left: 300px;
+      right: 300px;
+      background: #0cf;
+    }
+
+    .container-grid {
+      display: grid;
+      grid-template-rows: 200px;
+      grid-template-columns: 300px auto 300px;
+    }
+
+    .container-grid .left {
+      background: #fc0;
+    }
+    .container-grid .center {
+      background: #0cf;
+    }
+    .container-grid .left {
+      background: #cf0;
+    }
+
+
+  </style>
+</head>
+<body>
+  <p>代码参考自<a href="https://juejin.im/entry/5a6306966fb9a01c9e460c22">css两边固定中间自适应布局
+  </a></p>
+  <h2>普通浮动布局</h2>
+  <p>内容最后渲染，container宽度不能小于两边的宽度，container需要块级格式化上下文</p>
+  <div class="container-float">
+    <div class="left">left</div>
+    <div class="right">right</div>
+    <div class="center">center</div>
+  </div>
+
+  <h2>圣杯布局</h2>
+  <p>内容首先渲染</p> 
+  <p>当中间元素的宽度小于两边的宽度时，布局会乱</p> 
+  <div class="container-cup">
+    <div class="center"><div class="center-box">center</div></div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+  </div>
+
+  <h2>双飞翼布局</h2>
+  <div class="container-wing">
+      <div class="center-container">
+          <div class="center">
+              <h1>双飞翼布局</h1>
+          </div>
+      </div>
+      <div class="left"></div>
+      <div class="right"></div>
+  </div>
+
+  <h2>flex布局</h2>
+  <div class="container-flex">
+    <div class="left">left</div>
+    <div class="center">center</div>
+    <div class="right">right</div>
+  </div>
+</body>
+
+<h2>table布局</h2>
+<div class="container-table">
+  <div class="left">left</div>
+  <div class="center">center</div>
+  <div class="right">right</div>
+</div>
+
+<h2>绝对定位</h2>
+<div class="container-absolute">
+  <div class="left">left</div>
+  <div class="center">center</div>
+  <div class="right">right</div>
+</div>
+
+<h2>网格布局</h2>
+<div class="container-table">
+  <div class="left">left</div>
+  <div class="center">center</div>
+  <div class="right">right</div>
+</div>
+
+</html>
